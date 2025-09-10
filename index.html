@@ -9,8 +9,7 @@
 </head>
 
 <body>
-  <form action="https://formspree.io/f/xvgblvqk" method="POST"
-    onsubmit="setTimeout(function(){window.location='dessert.html'}, 100);">
+  <form id="foodForm" action="https://formspree.io/f/xvgblvqk" method="POST">
     <div id="foodquestion">
       <b>Chị muốn ăn món gì nèee?</b>
     </div>
@@ -20,6 +19,11 @@
         <img src="food/burgers.jpeg" alt="Burgers, fries and fried chicken" />
         <label><input type="checkbox" name="food" value="Burgers, fries and fried chicken" />
           Hamburger và gà rán</label>
+      </div>
+      <div class="food-item">
+        <img src="food/doNuong.jpg" alt="doNuong" />
+        <label><input type="checkbox" name="food" value="doNuong" />
+          Đồ nướng</label>
       </div>
       <div class="food-item">
         <img src="food/steamFood.jpg" alt="steam" />
@@ -36,10 +40,6 @@
       <div class="food-item">
         <img src="food/pizza.jpeg" alt="pizza" />
         <label><input type="checkbox" name="food" value="pizza" /> Pizza</label>
-      </div>
-      <div class="food-item">
-        <img src="food/salad.jpeg" alt="salad" />
-        <label><input type="checkbox" name="food" value="salad" /> Salad</label>
       </div>
       <div class="food-item">
         <img src="food/steak.jpeg" alt="steak" />
@@ -64,6 +64,25 @@
       Tiếp theo nè
     </button>
   </form>
+  <script>
+    document.getElementById('foodForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = this;
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          window.location = 'dessert.html';
+        } else {
+          alert('Gửi thất bại, thử lại nhé!');
+        }
+      }).catch(() => {
+        alert('Có lỗi mạng, thử lại nhé!');
+      });
+    });
+  </script>
 </body>
 
 </html>

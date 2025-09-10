@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dessert</title>
+  <title>Dessert Selection</title>
   <link rel="stylesheet" href="css/dessert.css" />
 </head>
 
 <body>
-  <form action="https://formspree.io/f/xvgblvqk" method="POST"
-    onsubmit="setTimeout(function(){window.location='activities.html'}, 100);">
-    <div id="dessertquestion"><b>Tiếp theo mình đi đâu tiếp nèeee?</b></div>
-
+  <form id="dessertForm" action="https://formspree.io/f/xvgblvqk" method="POST">
+    <div id="dessertquestion"><b>Chọn món tráng miệng nèeee?</b></div>
     <div class="dessert-selection">
       <div class="dessert-item">
         <img src="food/boba.jpeg" alt="traSua" />
@@ -35,17 +33,17 @@
         <label><input type="checkbox" name="dessert" value="mochi" /> Mochi</label>
       </div>
       <div class="dessert-item">
-        <img src="food/randombun.jpeg" alt="banhNgot" />
-        <label><input type="checkbox" name="dessert" value="banhNgot" /> Bánh ngọt</label>
+        <img src="food/randombun.jpeg" alt="randombun" />
+        <label><input type="checkbox" name="dessert" value="randombun" /> Bánh ngọt</label>
       </div>
       <div class="dessert-item">
-        <img src="food/taiyaki.jpeg" alt="kem" />
-        <label><input type="checkbox" name="dessert" value="kem" /> Kem</label>
+        <img src="food/taiyaki.jpeg" alt="taiyaki" />
+        <label><input type="checkbox" name="dessert" value="taiyaki" /> Kem</label>
       </div>
       <div class="dessert-item">
         <img src="food/other.png" alt="others" />
         <div class="other-input-wrapper">
-          <input type="text" name="dessert_other" placeholder="Hoặc khác" />
+          <input type="text" name="dessert_other" placeholder="Nhập món tráng miệng khác" />
         </div>
       </div>
     </div>
@@ -53,4 +51,25 @@
       Tiếp nữaaaa
     </button>
   </form>
+  <script>
+    document.getElementById('dessertForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = this;
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          window.location = 'activities.html';
+        } else {
+          alert('Gửi thất bại, thử lại nhé!');
+        }
+      }).catch(() => {
+        alert('Có lỗi mạng, thử lại nhé!');
+      });
+    });
+  </script>
 </body>
+
+</html>
