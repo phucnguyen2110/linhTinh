@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities</title>
+    <link rel="stylesheet" href="css/activities.css" />
+  </head>
+  <body>
+    <form action="https://formspree.io/f/xvgblvqk" method="POST"
+      onsubmit="setTimeout(function(){window.location='lastpage.html'}, 100);">
+      <div id="activityquestion">
+        <b>À cái này kiểu nếu mình có cơ hội đi nữa á :v</b>
+      </div>
+      <div class="activities-selection">
+        <div class="activity-item">
+          <img src="activities/aquarium.jpeg" alt="thuyCung" />
+          <label>
+            <input type="checkbox" name="activities" value="thuyCung" />Đi thủy cung
+          </label>
+        </div>
+        <div class="activity-item">
+          <img src="activities/arcade.jpeg" alt="choiGame" />
+          <label>
+            <input type="checkbox" name="activities" value="choiGame" />Chơi game
+          </label>
+        </div>
+        <div class="activity-item">
+          <img src="activities/cinema.jpeg" alt="phim" />
+          <label>
+            <input type="checkbox" name="activities" value="phim" />Xem phim
+          </label>
+        </div>
+        <div class="activity-item">
+          <img src="activities/keramika.jpeg" alt="lamGom" />
+          <label>
+            <input type="checkbox" name="activities" value="lamGom" />Làm gốm
+          </label>
+        </div>
+        <div class="activity-item">
+          <img src="activities/kunsthalle.jpeg" alt="trienLam" />
+          <label>
+            <input type="checkbox" name="activities" value="trienLam" />Đi triển lãm
+          </label>
+        </div>
+        <div class="activity-item">
+          <img src="activities/park.jpeg" alt="congVien" />
+          <label>
+            <input type="checkbox" name="activities" value="congVien" />Đi dạo công viên
+          </label>
+        </div>
+        <div class="activity-item">
+          <img src="activities/other.png" alt="others" />
+          <div class="other-input-wrapper">
+            <input type="text" name="activities_other" placeholder="Nhập hoạt động khác" />
+          </div>
+        </div>
+      </div>
+      <button class="button" type="submit">
+        Tiếp tục
+      </button>
+    </form>
+  </body>
+</html>
